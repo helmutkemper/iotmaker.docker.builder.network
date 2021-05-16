@@ -5,8 +5,8 @@ import (
 	"github.com/docker/docker/api/types/network"
 )
 
-func (e *ContainerBuilderNetwork) GetConfiguration() (networkConfiguration *network.NetworkingConfig, err error) {
-	networkConfiguration, err = e.generator.GetNext()
+func (e *ContainerBuilderNetwork) GetConfiguration() (IP string, networkConfiguration *network.NetworkingConfig, err error) {
+	IP, networkConfiguration, err = e.generator.GetNext()
 
 	if err != nil {
 		err = errors.New("GetNext().error: " + err.Error())
